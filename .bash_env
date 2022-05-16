@@ -1,0 +1,38 @@
+[[ "$-" != *i* ]] && return
+
+set -o notify
+if [ ${BASH_VERSINFO[0]} -ge 4 ]; then
+    shopt -s autocd
+fi
+PROMPT_DIRTRIM=4
+
+bind 'set completion-ignore-case on'
+bind 'set show-all-if-ambiguous on'
+bind 'set completion-query-items 200'
+bind 'set visible-stats on'
+bind 'set colored-stats on'
+bind 'set mark-symlinked-directories on'
+bind 'set match-hidden-files off'
+bind 'set skip-completed-text on'
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+bind '"\C-p": history-search-backward'
+bind '"\C-n": history-search-forward'
+bind 'space:magic-space'
+
+export EDITOR=vi VISUAL=vi
+export LESS='-FiwRX'
+
+alias ls='ls --color=auto'
+alias ll='ls -lhaF'
+alias la='ls -AF'
+alias l='ls -F'
+alias grep='grep --color=auto'
+alias +x='chmod +x'
+alias g='git'
+alias h='history'
+alias sudo='sudo '
+alias gd='go doc'
+alias gda='go doc -all'
+
+# vim: expandtab filetype=bash
